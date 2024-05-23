@@ -53,6 +53,11 @@ const BookingModal: React.FC<BookingModalProps> = ({ show, onHide, hotelName, ho
     const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
+        if (new Date(checkIn) >= new Date(checkOut)) {
+            toast.error('Check-in date must be before check-out date.');
+           return;
+        }
+       
         const bookingRequest: BookingRequest = {
             hotelId,
             checkIn,
