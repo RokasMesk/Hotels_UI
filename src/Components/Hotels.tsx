@@ -33,7 +33,7 @@ const Hotels = () => {
             const data = await getHotels();
             setHotels(data);
         
-            console.log('Hotels set:', data); // Debugging line
+            
         } catch (error) {
             console.error('Failed to fetch hotels', error);
         } finally {
